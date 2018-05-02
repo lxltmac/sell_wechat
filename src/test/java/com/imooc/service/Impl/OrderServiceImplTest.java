@@ -90,4 +90,13 @@ public class OrderServiceImplTest {
         log.info("【支付订单】result={}",result);
         Assert.assertNotNull(result);
     }
+
+    @Test
+    public void findlist() throws Exception{
+        PageRequest pageRequest = new PageRequest(1,2);
+        Page<OrderDTO> orderDTOPage = orderService.findList(pageRequest);
+        log.info("【所有订单分页查询】orderDTOPage={}",orderDTOPage.getTotalElements());
+//        Assert.assertNotEquals(0,orderDTOPage.getTotalElements());
+        Assert.assertTrue("所有订单分页查询",orderDTOPage.getTotalElements() > 0);
+    }
 }
