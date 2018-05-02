@@ -1,0 +1,27 @@
+
+#spring.devtools.restart.enabled: true
+
+##spring.devtools.restart.additional-paths: src/main/java
+
+#spring.devtools.restart.exclude: WEB-INF/**
+
+#logging.pattern.console = %d - %msg%n
+#logging.path = /var/log/tomcat/
+#logging.file=/var/log/tomcat/sell.log
+#logging.level.com.imooc.SellApplicationTests=debug
+spring:
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password:
+      url: jdbc:mysql://127.0.0.1:3306/sell?useUnicode=true&characterEncoding=utf8
+  jpa:
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+server:
+  context-path: /sell
+
+wechat:
+  mpAppId:  wxff2a48e0379aa159
+  mpAppSecret:  6c43a48dd8a105968007c500a5492a87
