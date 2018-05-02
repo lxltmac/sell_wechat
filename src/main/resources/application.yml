@@ -23,8 +23,9 @@ server:
   context-path: /sell
 
 wechat:
-  mpAppId:  wxff2a48e0379aa159
+  mpAppId:  wx5aecc6026a350680
   mpAppSecret:  6c43a48dd8a105968007c500a5492a87
   mchId: 1409146202
-  mchKey:
+  mchKey: xxxxxxxxxxx
   keyPath: /var/weixin_cert/h5.p12
+  notifyUrl: http://sellxili.natapp1.cc/sell/pay/notify
