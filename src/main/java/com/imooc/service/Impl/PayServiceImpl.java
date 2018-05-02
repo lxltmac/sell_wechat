@@ -9,6 +9,8 @@ import com.imooc.utils.MathUtil;
 import com.lly835.bestpay.enums.BestPayTypeEnum;
 import com.lly835.bestpay.model.PayRequest;
 import com.lly835.bestpay.model.PayResponse;
+import com.lly835.bestpay.model.RefundRequest;
+import com.lly835.bestpay.model.RefundResponse;
 import com.lly835.bestpay.service.impl.BestPayServiceImpl;
 import com.lly835.bestpay.utils.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -72,5 +74,24 @@ public class PayServiceImpl implements PayService {
             throw new SellException(ResultEnum.WXPAY_NOTIFY_MONEY_VERIFY_ERROR);
         }
         return payResponse;
+    }
+
+    /**
+     * 退款
+     * @param orderDTO
+     * @return
+     */
+    @Override
+    @Transactional
+    public RefundResponse refund(OrderDTO orderDTO) {
+        RefundRequest refundResquest = new RefundRequest();
+        refundResquest.setOrderId(orderDTO.getOrderId());
+        refundResquest.setOrderAmount(orderDTO.getOrderAmount().doubleValue());
+        refundResquest.setPayTypeEnum(BestPayTypeEnum.WXPAY_H5);
+        log.info("【微信退款】request={}", JsonUtil.toJson(refundResquest));
+
+        RefundResponse refundResponse = bestPayService.refund(refundResquest);
+        log.info("【微信退款】response={}", JsonUtil.toJson(refundResponse));
+        return refundResponse;
     }
 }
