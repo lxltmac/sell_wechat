@@ -2,6 +2,7 @@ package com.imooc.service.Impl;
 
 import com.imooc.dataobject.ProductInfo;
 import com.imooc.service.ProductService;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +23,7 @@ import static org.junit.Assert.*;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Slf4j
 public class ProductServiceImplTest {
     @Autowired
     private ProductServiceImpl productService;
@@ -59,5 +61,17 @@ public class ProductServiceImplTest {
         productInfo.setCategoryType(2);
         ProductInfo result = productService.save(productInfo);
         Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void onSale() throws Exception{
+        ProductInfo productInfo = productService.onSale("123456");
+        Assert.assertTrue("商品上架状态",productInfo.getProductStatus() == 0);
+    }
+
+    @Test
+    public void offSale() throws Exception{
+        ProductInfo productInfo = productService.offSale("123456");
+        Assert.assertTrue("商品下架状态",productInfo.getProductStatus() > 0);
     }
 }

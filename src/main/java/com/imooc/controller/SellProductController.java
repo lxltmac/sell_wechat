@@ -1,6 +1,8 @@
 package com.imooc.controller;
 
 import com.imooc.dataobject.ProductInfo;
+import com.imooc.enums.ResultEnum;
+import com.imooc.exception.SellException;
 import com.imooc.service.CategoryService;
 import com.imooc.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +48,47 @@ public class SellProductController {
         map.put("currentPage", page);
         map.put("size", size);
         return new ModelAndView("product/list", map);
+    }
+    /**
+     * 商品上架
+     * @param productId
+     * @param map
+     * @return
+     */
+    @RequestMapping("/on_sale")
+    public ModelAndView onSale(@RequestParam("productId") String productId,
+                               Map<String, Object> map) {
+        try {
+            productService.onSale(productId);
+        } catch (SellException e) {
+            map.put("msg", e.getMessage());
+            map.put("url", "/sell/seller/product/list");
+            return new ModelAndView("common/error", map);
+        }
+        map.put("msg", ResultEnum.PRODUCT_ONSALE_SUCCESS.getMsg());
+        map.put("url", "/sell/seller/product/list");
+        return new ModelAndView("common/success", map);
+    }
+
+    /**
+     * 商品下架
+     * @param productId
+     * @param map
+     * @return
+     */
+    @RequestMapping("/off_sale")
+    public ModelAndView offSale(@RequestParam("productId") String productId,
+                                Map<String, Object> map) {
+        try {
+            productService.offSale(productId);
+        } catch (SellException e) {
+            map.put("msg", e.getMessage());
+            map.put("url", "/sell/seller/product/list");
+            return new ModelAndView("common/error", map);
+        }
+        map.put("msg", ResultEnum.PRODUCT_OFFSALE_SUCCESS.getMsg());
+        map.put("url", "/sell/seller/product/list");
+        return new ModelAndView("common/success", map);
     }
 
 }
