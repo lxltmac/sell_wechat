@@ -25,7 +25,10 @@ public enum  ResultEnum {
     ORDER_FINISH_SUCCESS(23,"订单完结成功"),
     PRODUCT_STATUS_ERROR(24,"商品状态不正确"),
     PRODUCT_ONSALE_SUCCESS(25,"商品上架成功"),
-    PRODUCT_OFFSALE_SUCCESS(26,"商品下架成功");
+    PRODUCT_OFFSALE_SUCCESS(26,"商品下架成功"),
+    PRODUCT_ADD_SUCCESS(27,"商品新增成功"),
+    CATEGORY_ADD_SUCCESS(28,"商品类目新增成功"),
+    CATEGORY_TYPE_ERROR(29,"商品类目编号已存在");
 
     private Integer code;
     private String msg;

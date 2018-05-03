@@ -2,6 +2,7 @@ package com.imooc.dataobject;
 
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import java.util.Date;
  */
 @Entity
 @DynamicUpdate
+@DynamicInsert
 @Data  //该注解用于get和set，toString方法自动注入
 public class ProductCategory {
     /**
@@ -30,14 +32,14 @@ public class ProductCategory {
      * 类目编号
      */
     private Integer categoryType;
-//    /**
-//     * 创建时间
-//     */
-//    private Date createTime;
-//    /**
-//     * 更新时间
-//     */
-//    private Date updateTime;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
 
     public ProductCategory() {
     }

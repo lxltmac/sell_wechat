@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.imooc.enums.ProductStatusEnum;
 import com.imooc.utils.EnumUtil;
 import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
@@ -17,6 +18,7 @@ import java.util.Date;
 @Entity
 @Data
 @DynamicUpdate
+@DynamicInsert
 public class ProductInfo {
     @Id
     private String productId;
@@ -43,7 +45,7 @@ public class ProductInfo {
     /**
      * 状态，0正常，1下架
      */
-    private Integer productStatus;
+    private Integer productStatus = ProductStatusEnum.up.getCode();
     /**
      * 类目编号
      */

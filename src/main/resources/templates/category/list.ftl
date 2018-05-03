@@ -1,5 +1,5 @@
 <html>
-<#include "../common/header.ftl">
+<#include "../common/head.ftl">
 
 <body>
 <div id="wrapper" class="toggled">
@@ -9,7 +9,7 @@
 
 <#--主要内容content-->
     <div id="page-content-wrapper">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row clearfix">
                 <div class="col-md-12 column">
                     <table class="table table-bordered table-condensed">
