@@ -6,11 +6,10 @@ import lombok.Getter;
  * Created by Administrator on 2018/4/28.
  */
 @Getter
-public enum OrderStatusEnum {
+public enum OrderStatusEnum implements CodeEnum{
     NEW(0,"新订单"),
     FINISH(1,"完结"),
     CANCEL(2,"已取消");
-
     private Integer code;
     private String msg;
 
@@ -18,4 +17,5 @@ public enum OrderStatusEnum {
         this.code = code;
         this.msg = msg;
     }
+
 }
