@@ -22,8 +22,15 @@ public enum  ResultEnum {
     WX_MP_ERROR(20,"微信公众账号方面错误"),
     WXPAY_NOTIFY_MONEY_VERIFY_ERROR(21,"微信支付异步通知金额校验不通过"),
     ORDER_CANCEL_SUCCESS(22,"订单取消成功"),
-    ORDER_FINISH_SUCCESS(23,"订单完结成功");
-
+    ORDER_FINISH_SUCCESS(23,"订单完结成功"),
+    PRODUCT_STATUS_ERROR(24,"商品状态不正确"),
+    PRODUCT_ONSALE_SUCCESS(25,"商品上架成功"),
+    PRODUCT_OFFSALE_SUCCESS(26,"商品下架成功"),
+    PRODUCT_ADD_SUCCESS(27,"商品新增成功"),
+    CATEGORY_ADD_SUCCESS(28,"商品类目新增成功"),
+    CATEGORY_TYPE_ERROR(29,"商品类目编号已存在"),
+    LOGIN_FAIL(30,"登录失败"),
+    LOGOUT_SUCCESS(31,"登出成功");
 
     private Integer code;
     private String msg;

@@ -92,8 +92,8 @@
     </div>
     <script>
         var webSocket = null;
-        if('webSocket' in window){
-            webSocket = new webSocket('ws://127.0.0.1:8080/sell/webSocket');
+        if('WebSocket' in window){
+            webSocket = new WebSocket('ws://127.0.0.1:8080/sell/webSocket');
         }else{
             alert('该浏览器不支持websocket');
         }

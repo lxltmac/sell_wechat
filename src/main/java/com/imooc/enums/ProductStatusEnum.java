@@ -7,8 +7,8 @@ import lombok.Getter;
  * Created by Administrator on 2018/4/28.
  */
 @Getter
-public enum ProductStatusEnum {
-    up(0,"商品上架"),
+public enum ProductStatusEnum implements CodeEnum{
+    up(0,"商品在架"),
     down(1,"商品下架");
 
     private Integer code;
