@@ -15,6 +15,7 @@ import com.imooc.repository.OrderMasterRepository;
 import com.imooc.service.OrderService;
 import com.imooc.service.PayService;
 import com.imooc.service.ProductService;
+import com.imooc.service.WebSocket;
 import com.imooc.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -49,6 +50,9 @@ public class OrderServiceImpl implements OrderService{
 
     @Autowired
     private PayService payService;
+
+    @Autowired
+    private WebSocket webSocket;
 
 
     @Override
@@ -86,6 +90,10 @@ public class OrderServiceImpl implements OrderService{
                 new CartDTO(e.getProductId(),e.getProductQuantity())
         ).collect(Collectors.toList());
         productService.decreaseSock(cartDTOList);
+
+        //websocket发送消息
+        webSocket.sendMessage("有新的订单");
+
         return orderDTO;
     }
 

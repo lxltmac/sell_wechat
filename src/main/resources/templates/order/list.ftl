@@ -91,27 +91,30 @@
         </div>
     </div>
     <script>
-        var webSocket = null;
+        var websocket = null;
         if('WebSocket' in window){
-            webSocket = new WebSocket('ws://127.0.0.1:8080/sell/webSocket');
+            websocket = new WebSocket('ws://127.0.0.1:8080/sell/webSocket');
         }else{
             alert('该浏览器不支持websocket');
         }
-        webSocket.onopen = function (event) {
+        websocket.onopen = function (event) {
             console.log('建立连接');
         }
-        webSocket.onclose = function (event) {
+        websocket.onclose = function (event) {
             console.log('连接关闭');
         }
-        webSocket.onmessage = function (event) {
-            console.log('收到消息：'+ event.data);
-            //弹窗提醒，播放音乐
+        websocket.onmessage = function (event) {
+            console.log('收到消息:' + event.data)
+            //弹窗提醒, 播放音乐
+//            $('#myModal').modal('show');
+//
+//            document.getElementById('notice').play();
         }
-        webSocket.onerror = function () {
+        websocket.onerror = function () {
             alert('websocket通信发生错误！');
         }
         window.onbeforeunload = function () {
-            webSocket.close();
+            websocket.close();
         }
     </script>
     </body>
