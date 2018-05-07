@@ -92,7 +92,7 @@ public class OrderServiceImpl implements OrderService{
         productService.decreaseSock(cartDTOList);
 
         //websocket发送消息
-        webSocket.sendMessage("有新的订单");
+        webSocket.sendMessage(orderDTO.getOrderId());
 
         return orderDTO;
     }
