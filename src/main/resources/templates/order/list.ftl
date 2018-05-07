@@ -90,6 +90,30 @@
             </div>
         </div>
     </div>
+    <script>
+        var webSocket = null;
+        if('WebSocket' in window){
+            webSocket = new WebSocket('ws://127.0.0.1:8080/sell/webSocket');
+        }else{
+            alert('该浏览器不支持websocket');
+        }
+        webSocket.onopen = function (event) {
+            console.log('建立连接');
+        }
+        webSocket.onclose = function (event) {
+            console.log('连接关闭');
+        }
+        webSocket.onmessage = function (event) {
+            console.log('收到消息：'+ event.data);
+            //弹窗提醒，播放音乐
+        }
+        webSocket.onerror = function () {
+            alert('websocket通信发生错误！');
+        }
+        window.onbeforeunload = function () {
+            webSocket.close();
+        }
+    </script>
     </body>
 </html>
 <#--<#list orderDTOPage.content as orderDTO>-->
