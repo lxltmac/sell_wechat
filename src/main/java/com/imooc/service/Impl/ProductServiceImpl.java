@@ -7,6 +7,7 @@ import com.imooc.enums.ResultEnum;
 import com.imooc.exception.SellException;
 import com.imooc.repository.ProductInfoRepository;
 import com.imooc.service.ProductService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +20,7 @@ import java.util.List;
  * Created by Administrator on 2018/4/28.
  */
 @Service
+@Slf4j
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductInfoRepository productInfoRepository;
@@ -101,4 +103,5 @@ public class ProductServiceImpl implements ProductService {
         productInfo.setProductStatus(ProductStatusEnum.down.getCode());
         return productInfoRepository.save(productInfo);
     }
+
 }

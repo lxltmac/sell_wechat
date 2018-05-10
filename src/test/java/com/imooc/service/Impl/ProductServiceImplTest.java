@@ -1,7 +1,6 @@
 package com.imooc.service.Impl;
 
 import com.imooc.dataobject.ProductInfo;
-import com.imooc.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,11 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.awt.print.Pageable;
 import java.math.BigDecimal;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by Administrator on 2018/4/28.
@@ -74,4 +70,5 @@ public class ProductServiceImplTest {
         ProductInfo productInfo = productService.offSale("123456");
         Assert.assertTrue("商品下架状态",productInfo.getProductStatus() > 0);
     }
+
 }

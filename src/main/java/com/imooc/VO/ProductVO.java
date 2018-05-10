@@ -2,8 +2,8 @@ package com.imooc.VO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import org.springframework.boot.jackson.JsonComponent;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,7 +11,9 @@ import java.util.List;
  * Created by Administrator on 2018/4/28.
  */
 @Data
-public class ProductVO {
+public class ProductVO implements Serializable {
+
+    private static final long serialVersionUID = 7097863777546530545L;
 
     @JsonProperty("name")
     private String categoryName;

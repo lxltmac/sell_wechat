@@ -40,3 +40,9 @@ projectUrl:
   wechatMpAuthorize: http://sellxili.natapp1.cc
   wechatOpenAuthorize: http://sellxili.natapp1.cc
   sell: http://127.0.0.1:8080
+logging:
+  level:
+    com.imooc.dataobject.mapper: trace
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
