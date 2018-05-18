@@ -21,7 +21,7 @@ public class PayServiceImplTest {
 
     @Autowired
     private PayServiceImpl payService;
-    //测试
+
     @Test
     public void create() throws Exception {
         OrderDTO orderDTO = orderService.findOne("1525088373972422728");
