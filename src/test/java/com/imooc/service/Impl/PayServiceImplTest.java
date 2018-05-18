@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by Administrator on 2018/5/2.
  */
@@ -23,7 +21,7 @@ public class PayServiceImplTest {
 
     @Autowired
     private PayServiceImpl payService;
-
+    //测试
     @Test
     public void create() throws Exception {
         OrderDTO orderDTO = orderService.findOne("1525088373972422728");
